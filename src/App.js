@@ -10,44 +10,7 @@ import { nanoid } from 'nanoid'
 const App = () => {
 
 
-    let [todoList, setTodoList] = useState([
-        {
-            id: '001',
-            name: '吃飯',
-            done: false,
-            dateObj: {
-                month: 7,
-                date: 27
-            }
-        },
-        {
-            id: '002',
-            name: '睡覺',
-            done: true,
-            dateObj: {
-                month: 8,
-                date: 15
-            }
-        },
-        {
-            id: '003',
-            name: '洗澡',
-            done: true,
-            dateObj: {
-                month: 3,
-                date: '02'
-            }
-        },
-        {
-            id: '004',
-            name: '打東東',
-            done: false,
-            dateObj: {
-                month: 10,
-                date: 18
-            }
-        }
-    ])
+    let [todoList, setTodoList] = useState([])
 
     //新增一個item
     const addTaskHandle = (e) => {
