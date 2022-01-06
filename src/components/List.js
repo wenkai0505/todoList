@@ -1,17 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Item from './Item'
+import TodoListService from '../service/todolist.service'
 
 
-const List = ({ todoList, changeDoneHandle, deleteHandle }) => {
+const List = ({ todolist, setTodolist }) => {
+
+
+    useEffect(() => {
+        TodoListService.get()
+            .then((data) => {
+                setTodolist(data.data.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [todolist])
+
+
+
+
     return (
         <ul className="todo-main">
             {
-                todoList && todoList.map((item) => {
-                    return (
-                        <Item item={item} key={item.id} changeDoneHandle={changeDoneHandle} deleteHandle={deleteHandle} />
-                    )
+                todolist && todolist.map((item) => {
+                    return <Item key={item._id} item={item} />
                 })
             }
+
         </ul>
     )
 }
